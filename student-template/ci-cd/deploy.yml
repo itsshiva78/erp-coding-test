@@ -12,6 +12,7 @@
 # - Make sure indentation is correct (YAML is sensitive to spaces)
 
 # TODO: Write your GitHub Actions workflow YAML below
+```yaml
 name: CI/CD Pipeline
 
 on:
@@ -30,14 +31,14 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 18
 
       - name: Install frontend dependencies
-        working-directory: frontend
+        working-directory: student-template/frontend
         run: npm install
 
       - name: Build frontend
-        working-directory: frontend
+        working-directory: student-template/frontend
         run: npm run build
 
       - name: Set up Java
@@ -48,5 +49,6 @@ jobs:
           cache: maven
 
       - name: Run backend tests
-        working-directory: backend
+        working-directory: student-template/backend/java
         run: mvn test
+```
