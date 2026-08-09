@@ -1,4 +1,106 @@
 # TODO: Write your AI prompt below this line
 
+Create a React functional component named `SupplierPerformance` that displays supplier performance metrics in a clean, responsive dashboard widget.
+
+### Component Requirements
+
+**Component name:** `SupplierPerformance`
+
+### Props / API Data Structure
+
+The component should accept supplier performance data through a prop called `suppliers`.
+
+Expected data structure:
+
+```javascript
+[
+  {
+    id: "SUP-001",
+    name: "ABC Supplies",
+    onTimeDeliveryPercentage: 96,
+    averageResponseTimeHours: 4.5
+  },
+  {
+    id: "SUP-002",
+    name: "XYZ Manufacturing",
+    onTimeDeliveryPercentage: 82,
+    averageResponseTimeHours: 12
+  }
+]
+```
+
+The component should also support fetching this data from an API endpoint such as:
+
+```text
+GET /api/suppliers/performance
+```
+
+If API fetching is implemented, handle loading and error states appropriately.
+
+### UI Layout
+
+Create a responsive card/table layout titled **"Supplier Performance"**.
+
+For each supplier, display:
+
+* Supplier name
+* On-time delivery percentage
+* Average response time to purchase orders
+* Overall performance status
+
+Use a table on desktop screens and make the layout responsive for smaller screens.
+
+Example columns:
+
+| Supplier          | On-Time Delivery | Avg. Response Time | Status |
+| ----------------- | ---------------: | -----------------: | ------ |
+| ABC Supplies      |              96% |            4.5 hrs | Green  |
+| XYZ Manufacturing |              82% |             12 hrs | Yellow |
+
+Display percentages with `%` and response times with `hours` or `hrs`.
+
+### Color-Coding Logic
+
+Determine the supplier's status using the following rules:
+
+**Green — Good Performance**
+
+* On-time delivery percentage >= 90%
+* AND average response time <= 8 hours
+
+**Yellow — Needs Attention**
+
+* On-time delivery percentage >= 75% and < 90%
+* OR average response time > 8 hours and <= 24 hours
+
+**Red — Poor Performance**
+
+* On-time delivery percentage < 75%
+* OR average response time > 24 hours
+
+If multiple conditions apply, use the worst applicable status, with **Red taking priority over Yellow, and Yellow taking priority over Green**.
+
+Use:
+
+* Green: `#22c55e`
+* Yellow: `#eab308`
+* Red: `#ef4444`
+
+Display the status using a colored badge, dot, or background so it is immediately recognizable.
+
+### Additional Requirements
+
+* Use React functional components and hooks where appropriate.
+* Use semantic HTML.
+* Keep the component reusable and independent from other dashboard components.
+* Handle an empty supplier list by displaying: `No supplier performance data available.`
+* Handle loading with a `Loading...` message.
+* Handle API errors with a user-friendly error message.
+* Format numeric values consistently.
+* Make the component accessible by using appropriate table headers, labels, and sufficient color contrast.
+* Do not hard-code supplier records into the component.
+* Include clear, maintainable code and comments for the status calculation logic.
+* Return the complete `SupplierPerformance.jsx` component.
+
 
 ---
