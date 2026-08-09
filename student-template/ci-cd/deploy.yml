@@ -12,7 +12,7 @@
 # - Make sure indentation is correct (YAML is sensitive to spaces)
 
 # TODO: Write your GitHub Actions workflow YAML below
-```yaml
+
 name: CI/CD Pipeline
 
 on:
