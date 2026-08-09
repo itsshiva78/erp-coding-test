@@ -9,7 +9,11 @@ import java.util.Map;
 public class InventoryController {
 
     // TODO: Inject JdbcTemplate here
+private final JdbcTemplate jdbcTemplate;
 
+    public InventoryController(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
     /**
      * TODO: Implement this method.
      * 1. Query 'inventory' table where quantity <= reorder_level.
@@ -17,7 +21,13 @@ public class InventoryController {
      */
     @GetMapping("/api/inventory/alerts")
     public List<Map<String, Object>> getAlerts() {
-        // REMOVE THIS LINE AND IMPLEMENT LOGIC
+        String sql = """
+                SELECT *
+                FROM inventory
+                WHERE quantity <= reorder_level
+                """;
+
+        return jdbcTemplate.queryForList(sql);
         throw new UnsupportedOperationException("Not implemented yet");
     }
 }
