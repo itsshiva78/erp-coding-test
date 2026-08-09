@@ -4,5 +4,7 @@
 
 // TODO: Write your MongoDB query below
 db.order_audit.find({
-    // Complete this query object
+    order_id: "ORD-1001",
+    old_status: "PENDING",
+    new_status: "SHIPPED"
 });
