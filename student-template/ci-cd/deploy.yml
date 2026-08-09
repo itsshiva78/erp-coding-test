@@ -1,17 +1,12 @@
+```yaml
 # Question 4: CI/CD & GitHub Skills (15 points)
+
 # Context: Your repository needs a GitHub Actions workflow for automated testing and building
-#
-# Task: Create a GitHub Actions workflow that:
+
+# Task:
 # 1. Triggers on push to the main branch
 # 2. Runs npm install and npm run build for the frontend
-# 3. Runs python -m pytest for backend (if Python) OR mvn test (if Java)
-#
-# INSTRUCTIONS:
-# - Write your YAML workflow below
-# - Save this file as ci-cd/deploy.yml in your repository
-# - Make sure indentation is correct (YAML is sensitive to spaces)
-
-# TODO: Write your GitHub Actions workflow YAML below
+# 3. Runs mvn test for the Java backend
 
 name: CI/CD Pipeline
 
@@ -31,7 +26,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: '18'
 
       - name: Install frontend dependencies
         working-directory: student-template/frontend
@@ -51,3 +46,4 @@ jobs:
       - name: Run backend tests
         working-directory: student-template/backend/java
         run: mvn test
+```
